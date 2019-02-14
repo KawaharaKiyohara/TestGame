@@ -26,4 +26,13 @@ bool Game::Start()
 
 void Game::Update()
 {
+	//Y軸周りに5度回るクォータニオンを作成する。
+	CQuaternion qAddRot;
+	qAddRot.SetRotationDeg(
+		{ 0.0f, 1.0f, 0.0f },
+		5.0f
+	);
+	//回転を乗算して加算する。
+	m_rotation *= qAddRot;
+	m_skinModelRender->SetRotation(m_rotation);
 }
