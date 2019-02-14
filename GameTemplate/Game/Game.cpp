@@ -1,9 +1,11 @@
 #include "stdafx.h"
 #include "Game.h"
 #include "tkEngine/light/tkDirectionLight.h"
+#include "Hoge.h"
 
 Game::Game()
 {
+	NewGO< Hoge>(0);
 }
 
 
@@ -38,5 +40,6 @@ void Game::Update()
 	
 	//アナログスティックの入力で動かす。
 	m_position.x += Pad(0).GetLStickXF() * -2.0f;
+
 	m_skinModelRender->SetPosition(m_position);
 }
