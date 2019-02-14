@@ -35,4 +35,8 @@ void Game::Update()
 	//回転を乗算して加算する。
 	m_rotation *= qAddRot;
 	m_skinModelRender->SetRotation(m_rotation);
+	
+	//アナログスティックの入力で動かす。
+	m_position.x += Pad(0).GetLStickXF() * -2.0f;
+	m_skinModelRender->SetPosition(m_position);
 }
